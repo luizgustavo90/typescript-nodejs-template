@@ -33,7 +33,7 @@ export class UserRepository implements IUserRepository {
     skip,
     take,
   }: PaginateParams): Promise<UsersPaginateProperties> {
-    const [users, count] = await this.repository
+    const [user, count] = await this.repository
       .createQueryBuilder('r')
       .skip(skip)
       .take(take)
@@ -42,7 +42,7 @@ export class UserRepository implements IUserRepository {
       per_page: take,
       total: count,
       current_page: page,
-      data: users,
+      data: user,
     }
     return result
   }

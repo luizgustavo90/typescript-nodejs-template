@@ -12,17 +12,17 @@ type CreateUserDTO = {
 @injectable()
 export class CreateUserUseCase {
   constructor(
-    @inject('UsersRepository') private usersRepository: IUserRepository,
+    @inject('UserRepository') private userRepository: IUserRepository,
   ) {}
 
   async execute({ name, email, age }: CreateUserDTO): Promise<User> {
     console.log('esta entrando no usecase')
-    const emailExists = await this.usersRepository.findByEmail(email)
+    const emailExists = await this.userRepository.findByEmail(email)
     if (emailExists) {
       throw new AppError('Email address already exists!')
     }
 
-    const user = await this.usersRepository.create({
+    const user = await this.userRepository.create({
       name,
       email,
       age,
