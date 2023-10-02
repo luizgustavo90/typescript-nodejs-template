@@ -1,0 +1,6 @@
+# Comando para criar migrações:
+npm run typeorm migration:create src/shared/typeorm/migrations/<Nome do arquivo que voce quer por>
+
+
+# Comando para rodar migração:
+npm run typeorm -- -d ./src/shared/typeorm/index.ts migration:run

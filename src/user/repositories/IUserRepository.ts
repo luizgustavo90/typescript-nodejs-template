@@ -1,4 +1,4 @@
-import { User } from '../main/entities/ User'
+import { User } from '../main/entities/User'
 
 export type CreateUserDTO = {
   name: string
