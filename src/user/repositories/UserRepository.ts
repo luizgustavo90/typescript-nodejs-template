@@ -34,7 +34,7 @@ export class UserRepository implements IUserRepository {
     take,
   }: PaginateParams): Promise<UsersPaginateProperties> {
     const [user, count] = await this.repository
-      .createQueryBuilder('r')
+      .createQueryBuilder('u')
       .skip(skip)
       .take(take)
       .getManyAndCount()
@@ -47,19 +47,7 @@ export class UserRepository implements IUserRepository {
     return result
   }
 
-  async findById(id: string): Promise<User | null> {
-    return this.repository.findOneBy({ id })
-  }
-
-  async findByName(name: string): Promise<User | null> {
-    return this.repository.findOneBy({ name })
-  }
-
   async findByEmail(email: string): Promise<User | null> {
     return this.repository.findOneBy({ email })
-  }
-
-  async delete(user: User): Promise<void> {
-    await this.repository.remove(user)
   }
 }

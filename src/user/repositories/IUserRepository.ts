@@ -27,8 +27,5 @@ export interface IUserRepository {
     skip,
     take,
   }: PaginateParams): Promise<UsersPaginateProperties>
-  findById(id: string): Promise<User | null>
-  findByName(name: string): Promise<User | null>
   findByEmail(email: string): Promise<User | null>
-  delete(user: User): Promise<void>
 }
